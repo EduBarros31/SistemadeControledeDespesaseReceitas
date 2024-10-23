@@ -6,9 +6,9 @@ function atualizarTransaçao (numero,novoTipo,novoValor,novaData){
         const novaDespesa = despesas.findIndex(outradespesa =>
             outradespesa.numero === numero)
             if(novaDespesa){
-                despesa.nome = novoTipo
-                despesa.valor = novoValor
-                despesa.data = novaData
+                despesas.nome = novoTipo
+                despesas.valor = novoValor
+                despesas.data = novaData
                 console.log("despesa atualizada com sucesso")
 
       }
