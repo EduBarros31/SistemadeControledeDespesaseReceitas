@@ -1,17 +1,33 @@
 const { despesas } = require ("./despesas")
 
-function criarTransaçao(numero,tipo,valor,data){
-    try {
-        const novaDespesa = {
-            numero,
-            tipo,
-            valor,
-            data
-        }
-      despesas.push(novaDespesa);
-      
+var validator = require('validator');
 
-    } catch (error) {
+
+function criarTransaçao(numero,tipo,valor,data){
+    
+    const novaDespesa = {numero,tipo,valor,data}
+    
+    try {
+        
+    if   ( validator.isEmpty(numero)||
+            validator.isEmpty(tipo)||
+            validator.isEmpty(valor)||
+            validator.isEmpty(data)
+    )  
+    { 
+        
+        
+        console.error("Todos os campos deve serem preenchidos")
+        return
+        
+    
+      }
+      despesas.push(novaDespesa)
+      
+      } 
+   
+   
+        catch (error) {
         console.error("Erro ao cadastrar despesas ",error.message)
 
     }
